@@ -1,0 +1,72 @@
+{
+  "torch": {
+    "device": "cuda",
+    "seed": 42,
+    "precision": "medium",
+    "mix_precision16": true
+  },
+  "dataset": {
+    "dataset_name": "wpc",
+    "data_aug": true,
+    "traininfo": "splits/fold_{fold}/train.xlsx",
+    "vailinfo": "splits/fold_{fold}/vail.xlsx",
+    "train_mos_scale": 100,
+    "vail_mos_scale": 100,
+    "patch_num": 32,
+    "train_patch_num": 8,
+    "vail_patch_num": 32,
+    "pc_path": "patches",
+    "pic_path": "projections",
+    "random": true,
+    "data_normalization": false,
+    "global_view_cache": "global_views",
+    "raw_path": "raw"
+  },
+  "hyperparameters": {
+    "val_frequency": 1,
+    "batch_size": 4,
+    "num_epochs": 100,
+    "optimizer_param": {
+      "learning_rate": 5e-05,
+      "weight_decay": 1e-05,
+      "lr_decay_step_size": 5,
+      "lr_decay_gamma": 0.9
+    },
+    "num_workers": 4,
+    "pin_memory": true,
+    "shuffle": true,
+    "model": {
+      "embedding_size": 128,
+      "embedding_dim": 1024,
+      "l_w_embedding": 0.5,
+      "l_w_commitment": 0.8,
+      "gtfs_geometry_loss_weight": 0.02,
+      "gtfs_texture_loss_weight": 0.02,
+      "gtfs_hidden_dim": 256,
+      "gtfs_smooth_l1_beta": 0.1
+    }
+  },
+  "reproducibility": {
+    "selection": "highest held-out-fold SROCC each epoch; no separate inner validation",
+    "split_recipe": "configs/splits/wpc.json"
+  },
+  "pretrained": "pretrained/swin_tiny_patch4_window7_224.pth",
+  "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "global_context_hidden_dim": 256,
+  "integration": {
+    "host": "user-obtained DA-Net; not bundled",
+    "endpoints": [
+      "pc_linear",
+      "pic_linear",
+      "pic_backbone",
+      "fc"
+    ],
+    "format": "loaded by our reader runners; not a stock upstream main.py config"
+  }
+}

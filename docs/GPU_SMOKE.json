@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-24",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.2.0+cu118",
+  "lightning": "2.2.1",
+  "pytorch3d": "0.7.7",
+  "external_base_model_sha256": "de621f2b1e25257f762e726b3403649a6a6eaa249d434bb5430480a1e642e792",
+  "full_backbones": ["SwinTransformer", "pointnet2"],
+  "parameters": 37930621,
+  "main_seed": 42,
+  "precision": "16-mixed",
+  "train_batch_size": 4,
+  "train_patches_per_cloud": 8,
+  "validation_batch_size": 1,
+  "validation_patches_per_cloud": 32,
+  "train_batches": 4,
+  "validation_batches": 4,
+  "results": [
+    {"dataset": "wpc", "fold": 1, "optimizer_updates": 3, "finite_model_state": true, "finite_optimizer_state": true, "passed": true},
+    {"dataset": "sjtu", "fold": 1, "optimizer_updates": 4, "finite_model_state": true, "finite_optimizer_state": true, "passed": true}
+  ],
+  "scope": "Functional GPU training/validation smoke with existing real caches; not full cross-validation or raw-data regeneration."
+}

@@ -1,0 +1,14 @@
+-r requirements.txt
+-r requirements-views.txt
+torchvision==0.17.0
+pytorch-lightning==2.2.1
+timm==1.0.3
+scipy==1.13.1
+opencv-python==4.10.0.84
+vector-quantize-pytorch==1.14.24
+einops==0.8.2
+tensorboard==2.21.0
+torchmetrics==1.8.2
+matplotlib==3.9.4
+# PyTorch3D must additionally match the Python/PyTorch/CUDA environment.
+# See the upstream installation guide; no third-party wheel is bundled.

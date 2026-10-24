@@ -1,0 +1,7 @@
+# Extension dependencies only; install the host's own requirements separately.
+# Install a CUDA-compatible torch wheel first, if needed.
+torch==2.2.0
+numpy==1.26.4
+Pillow==11.3.0
+pandas==2.3.3
+openpyxl==3.1.5

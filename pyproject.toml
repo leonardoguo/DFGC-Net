@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dfgc-net"
+version = "0.3.0"
+description = "Incremental GTFS and LGQC modules for a separately obtained PCQA host"
+requires-python = ">=3.9"
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[tool.setuptools.packages.find]
+include = ["dfgc*"]
